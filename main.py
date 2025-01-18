@@ -22,6 +22,7 @@ def graceful_shutdown(shutdown_event):
 
 
 def start_monitoring(prometheus_port, collector):
+    logger.debug("Starting web server on port {}".format(prometheus_port))
     start_http_server(prometheus_port)
     REGISTRY.register(collector)
 
@@ -37,7 +38,7 @@ def start_monitoring(prometheus_port, collector):
 )
 @option(
     '--config-file', default="tapo.yaml", envvar="TAPO_MONITOR_CONFIG",
-    help="Password associated with TP-Link TAPO account."
+    help="Config file for TAPO devices."
 )
 @option(
     '--prometheus-port', default=8080, help="port for prometheus metric exposition"

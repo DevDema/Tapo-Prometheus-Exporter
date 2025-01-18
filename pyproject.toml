@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "tplinkmon"
 version = "0.0.1"
-description = ""
+description = "A Python package to monitor TP-Link devices and expose metrics for Prometheus."
 authors = ["Fergus In London <fergus@fergus.london>"]
 
 [tool.poetry.dependencies]
@@ -12,8 +12,15 @@ click = "^8.0.4"
 loguru = "^0.6.0"
 PyYAML = "^6.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
+# Example dev dependencies
+# pytest = "^7.0.0"
+# black = "^22.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.packages]]
+include = "tplinkmon"
+from = "."
